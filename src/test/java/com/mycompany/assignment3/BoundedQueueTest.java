@@ -89,5 +89,44 @@ public class BoundedQueueTest {
         String expResult = "[1, 2, 3]";
         assertEquals(expResult, bQueue.toString());
     }
+
+    /**
+     * Test of BoundedQueue constructor IllegalArgumentException, of class BoundedQueue.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testBondedQueueIllegalArgExcep() {
+        System.out.println("BoundedQueue Illegal Arg Excep");
+        BoundedQueue bq = new BoundedQueue(-1);
+    }
     
+     /**
+     * Test of enQueue method NullPointerException, of class BoundedQueue.
+     */
+    @Test(expected = NullPointerException.class)
+    public void testEnQueueNullPtrExcep() {
+        System.out.println("EnQueue Null Ptr Excep");
+        bQueue.enQueue(null);
+    }
+    
+    /**
+     * Test of enQueue method IllegalStateException, of class BoundedQueue.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void testEnQueueIllegalStateExcep() {
+        System.out.println("EnQueue Illegal State Excep");
+        bQueue.enQueue(4);
+    }
+    
+    /**
+     * Test of DeQueue method IllegalStateException, of class BoundedQueue.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void testDeQueueIllegalStateExcep() {
+        System.out.println("DeQueue Illegal State Excep");
+        bQueue.deQueue();        
+        bQueue.deQueue();
+        bQueue.deQueue();
+        bQueue.deQueue();
+
+    }
 }
